@@ -9,11 +9,10 @@ class ServiciosController extends Controller
     public function index(){
 
         $servicios = [
-        ['titulo' => 'Servicio 01'],
-        ['titulo' => 'Servicio 02'],
-        ['titulo' => 'Servicio 03'],
-        ['titulo' => 'Servicio 04'],
-        ['titulo' => 'Servicio 05'],
+        ['titulo' => 'Mantenimiento'],
+        ['titulo' => 'Afinamiento'],
+        ['titulo' => 'Cambio de Acceite'],
+        ['titulo' => 'Lavado tipo salón'],
         ];
         return view('servicios', compact('servicios'));
         }}
