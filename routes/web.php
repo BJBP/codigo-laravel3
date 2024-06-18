@@ -17,3 +17,7 @@ Route::get('servicios/crear', 'App\Http\Controllers\ServiciosController@create')
 Route::get('servicios/{id}', 'App\Http\Controllers\ServiciosController@show')->name('servicios.show');
 Route::post('/servicios', 'App\Http\Controllers\ServiciosController@store')->name('servicios.store');
 Route::get('servicios', 'App\Http\Controllers\ServiciosController@index')->name('servicios.index');
+Route::get('personas/crear', 'App\Http\Controllers\personasController@create_personas')->name('personas.create_personas');
+Route::get('personas/{id}', 'App\Http\Controllers\personasController@show')->name('personas.show');
+Route::post('/personas', 'App\Http\Controllers\personasController@store')->name('personas.store');
+Route::get('personas', 'App\Http\Controllers\personasController@index')->name('personas.index');
