@@ -10,9 +10,8 @@ $servicios= [/*
     ];
     Route::view('/', 'home')->name('home');
 Route::view('nosotros', 'nosotros')->name('nosotros');
-Route::get('servicios', 'App\Http\Controllers\ServiciosController@index')->name('index');
+Route::get('servicios', 'App\Http\Controllers\ServiciosController@index')->name('servicios.index');
 Route::view('contacto', 'contacto')->name('contacto');
-// Route::get('servicios', 'ServiciosController@index')->name('servicios.index');
 Route::get('servicios/crear', 'App\Http\Controllers\ServiciosController@create')->name('servicios.create');
 Route::get('servicios/{id}', 'App\Http\Controllers\ServiciosController@show')->name('servicios.show');
 Route::post('/servicios', 'App\Http\Controllers\ServiciosController@store')->name('servicios.store');
@@ -21,3 +20,5 @@ Route::get('personas/crear', 'App\Http\Controllers\personasController@create_per
 Route::get('personas/{id}', 'App\Http\Controllers\personasController@show')->name('personas.show');
 Route::post('/personas', 'App\Http\Controllers\personasController@store')->name('personas.store');
 Route::get('personas', 'App\Http\Controllers\personasController@index')->name('personas.index');
+
+Route::post('/contacto', 'ContactController@store');
