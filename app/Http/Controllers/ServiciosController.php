@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Servicio;
+use App\Http\Requests\CreateServicioRequest;
 
 class ServiciosController extends Controller
 {
@@ -24,7 +25,9 @@ class ServiciosController extends Controller
         return view('create');
     }
 
-    public function store(){
+    public function store(CreateServicioRequest $request){
+        
+        Servicio::create($request->validated());
         // Recogemos Las variables
         $camposv = request()->validate([
             'titulo' => 'required',
