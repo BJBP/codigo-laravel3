@@ -26,20 +26,14 @@ class ServiciosController extends Controller
     }
 
     public function store(CreateServicioRequest $request){
-        
+    
+        // Crea el servicio con los datos validados
         Servicio::create($request->validated());
-        // Recogemos Las variables
-        $camposv = request()->validate([
-            'titulo' => 'required',
-            'descripcion' => 'required'
-        ]);
         
-        // Almacenamos en la BD usando el modelo Servicio
-        Servicio::create($camposv);
-        
-        // Redireccionamos a la vista index para ver el Listado de proyectos
+        // Redirecciona a la vista index para ver el listado de servicios
         return redirect()->route('servicios.index');
     }
+    
     
     
 }    
