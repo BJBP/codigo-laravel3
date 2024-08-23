@@ -1,31 +1,25 @@
-<title>@yield('title')</title>
-<style>
-.activo a{
-color:red;
-text-decoration: underline;
-}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@yield('title')</title>
+    <style>
+        .activo a {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<!-- <h1>Home</h1> -->
-<body>
-<nav>
-<!-- {{dump(request()->routeIs('home'))}} -->
-<table class="table">
-<thead class="table table-bordered">
-<!-- <tr>
-<th scope="col" class="{{ setActivo('home') }}"><a href="/">Home</a></th>
-<th scope="col" class="{{ setActivo('nosotros') }}"> <a href="nosotros">Nosotros</a></th>
-<th scope="col" class="{{ setActivo('servicios') }}"><a href="servicios">Servicios</a></th>
-<th scope="col" class="{{ setActivo('contacto') }}"> <a href="contacto">Contacto</a></th>
-</tr> -->
-</thead>
+    <nav>
+        <table class="table">
+            @include('partials.nav')
+        </table>
+    </nav>
+    @yield('content')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
-</nav>
-</table>
-<nav>
-<table class="table">
-@include('partials.nav')
-@yield('content')
-</table>
-</nav>
+</html>

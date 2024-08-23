@@ -8,8 +8,10 @@ class CreateServicioRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -17,21 +19,28 @@ class CreateServicioRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, mixed>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
             //
             'titulo' => 'required',
-            'descripcion' => 'required'
+            'category_id' => [
+                'requiered', 'exists::categories,id'
+            ],
+            'descripcion' => 'required',
+            'image' => [ $this->route('servicio') ? 'nullable' : 'required','mimes:png,jpg']
         ];
     }
-    public function messages(){
+
+    public function messages()
+    {
         return [
             'titulo.required' => 'Se necesita un título para el servicio',
-            'descripcion.required' => 'Ingresa una descripción, es necesaria'
+            'category_id.required' => 'Seleccione una categoria para el servicio',
+            'descripcion.required' => 'Ingreso una descripción, es necesario',
+            'image.required' => 'Debes seleccionar una imagen'
         ];
     }
-    
 }
